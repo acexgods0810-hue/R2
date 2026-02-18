@@ -71,7 +71,7 @@
             max-width: 1100px;
             margin: -100px auto 50px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 20px;
             padding: 0 20px;
             position: relative;
@@ -85,15 +85,28 @@
             border-top: 5px solid var(--ruby);
             text-align: center;
             box-shadow: 0 15px 40px rgba(120, 1, 22, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 280px; /* Ensures all cards are same height */
         }
 
         .chapter-card h3 {
             font-family: 'Lora', serif;
             font-size: 1.1rem;
             letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: var(--ruby);
+            font-weight: 700;
+        }
+
+        .sub-label {
+            font-size: 0.75rem;
             margin-bottom: 20px;
             color: var(--ruby);
             font-weight: 700;
+            letter-spacing: 1px;
+            min-height: 1.2rem;
         }
 
         .timer-grid {
@@ -107,6 +120,7 @@
             padding: 15px 5px;
             border-radius: 15px;
             border: 1px solid rgba(195, 47, 39, 0.1);
+            text-align: center;
         }
 
         .t-val {
@@ -117,6 +131,7 @@
         }
 
         .t-label {
+            display: block;
             font-size: 0.6rem;
             text-transform: uppercase;
             font-weight: 700;
@@ -164,19 +179,9 @@
             font-size: 0.8rem;
         }
 
-        .btn-yes { 
-            background: var(--ruby); 
-            color: white; 
-            box-shadow: 0 10px 25px rgba(195, 47, 39, 0.4);
-        }
-
+        .btn-yes { background: var(--ruby); color: white; box-shadow: 0 10px 25px rgba(195, 47, 39, 0.4); }
         .btn-yes:hover { transform: scale(1.05); background: var(--wine); }
-
-        .btn-no { 
-            background: transparent; 
-            color: var(--ruby); 
-            border: 2px solid var(--ruby);
-        }
+        .btn-no { background: transparent; color: var(--ruby); border: 2px solid var(--ruby); }
 
         /* --- SECRET PAGE --- */
         #secret-page {
@@ -192,30 +197,10 @@
             transition: 1.5s;
         }
 
-        .secret-h { 
-            font-family: 'Alex Brush', cursive; 
-            font-size: 4.5rem; 
-            color: var(--ruby); 
-            margin-bottom: 20px; 
-        }
-        
-        .secret-msg { 
-            max-width: 650px; 
-            margin: 0 auto 40px; 
-            line-height: 2.2; 
-            font-size: 1.3rem; 
-            color: var(--wine);
-            font-family: 'Lora', serif;
-            font-style: italic;
-        }
-        
+        .secret-h { font-family: 'Alex Brush', cursive; font-size: 4.5rem; color: var(--ruby); margin-bottom: 20px; }
+        .secret-msg { max-width: 650px; margin: 0 auto 40px; line-height: 2.2; font-size: 1.3rem; color: var(--wine); font-family: 'Lora', serif; font-style: italic; }
         .photo-wall { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-        .photo-wall img { 
-            width: 280px; height: 350px; object-fit: cover; 
-            border: 12px solid white; box-shadow: 0 15px 45px rgba(0,0,0,0.15); 
-            border-radius: 2px; 
-            transform: rotate(var(--r, 0deg));
-        }
+        .photo-wall img { width: 280px; height: 350px; object-fit: cover; border: 12px solid white; box-shadow: 0 15px 45px rgba(0,0,0,0.15); border-radius: 2px; transform: rotate(var(--r, 0deg)); }
 
         .insta-btn {
             display: inline-block;
@@ -233,12 +218,7 @@
             border-radius: 50px;
         }
 
-        .insta-btn:hover {
-            background: var(--gold);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
-        }
+        .insta-btn:hover { background: var(--gold); color: white; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
 
         .scratch-container {
             position: relative;
@@ -249,19 +229,8 @@
             border: 3px solid var(--ruby);
         }
 
-        #scratch-canvas {
-            position: absolute; top: 0; left: 0;
-            z-index: 2; touch-action: none;
-        }
-
-        .secret-content {
-            position: absolute; inset: 0;
-            background: white;
-            display: flex; align-items: center; justify-content: center;
-            font-family: 'Alex Brush', cursive; font-size: 2.2rem;
-            color: var(--ruby);
-            z-index: 1;
-        }
+        #scratch-canvas { position: absolute; top: 0; left: 0; z-index: 2; touch-action: none; }
+        .secret-content { position: absolute; inset: 0; background: white; display: flex; align-items: center; justify-content: center; font-family: 'Alex Brush', cursive; font-size: 2.2rem; color: var(--ruby); z-index: 1; }
 
         .music-btn {
             position: fixed; bottom: 30px; left: 30px;
@@ -273,13 +242,11 @@
             cursor: pointer; z-index: 1000;
             letter-spacing: 1px;
         }
-
     </style>
 </head>
 <body onload="init()">
 
     <canvas id="petal-canvas"></canvas>
-    
     <audio id="bgSong" loop src="song.mp3"></audio>
     <button class="music-btn" onclick="togglePlay()">PLAY OUR SONG ❤️</button>
 
@@ -291,10 +258,12 @@
 
         <div class="timeline">
             <div class="chapter-card">
-                <h3>Chapter 1: The Love</h3>
-                <p style="font-size: 0.75rem; margin-bottom: 15px; color: var(--ruby); font-weight: 700; letter-spacing: 1px;">Jan 26 — July 11, 2025</p>
+                <div>
+                    <h3>Chapter 1: The Love</h3>
+                    <p class="sub-label">Jan 26 — July 11, 2025</p>
+                </div>
                 <div class="timer-grid">
-                    <div class="t-box"><span class="t-val">532</span><span class="t-label">Days</span></div>
+                    <div class="t-box"><span class="t-val">166</span><span class="t-label">Days</span></div>
                     <div class="t-box"><span class="t-val">00</span><span class="t-label">Hrs</span></div>
                     <div class="t-box"><span class="t-val">00</span><span class="t-label">Min</span></div>
                     <div class="t-box"><span class="t-val">00</span><span class="t-label">Sec</span></div>
@@ -302,8 +271,10 @@
             </div>
 
             <div class="chapter-card">
-                <h3>Chapter 2: The Distance</h3>
-                <p style="font-size: 0.75rem; margin-bottom: 15px; opacity: 0.6; letter-spacing: 1px;">July 11, 2025 - Feb 13, 2026</p>
+                <div>
+                    <h3>Chapter 2: The Distance</h3>
+                    <p class="sub-label" style="opacity: 0.6;">July 11, 2025 - Feb 13, 2026</p>
+                </div>
                 <div class="timer-grid">
                     <div class="t-box"><span class="t-val">217</span><span class="t-label">Days</span></div>
                     <div class="t-box"><span class="t-val">00</span><span class="t-label">Hrs</span></div>
@@ -312,10 +283,12 @@
                 </div>
             </div>
 
-            <div class="chapter-card" style="border-style: dashed; border-color: var(--ruby); background: rgba(255,255,255,0.5);">
-                <h3>Chapter 3: The New Us</h3>
-                <p style="font-family: 'Alex Brush'; font-size: 2rem; margin-top: 10px; color: var(--ruby);">The New Us ♾️</p>
-                <div class="timer-grid" id="chapter3-timer">
+            <div class="chapter-card">
+                <div>
+                    <h3>Chapter 3: The New Us</h3>
+                    <p class="sub-label" style="font-family: 'Alex Brush'; font-size: 1.6rem; margin-top: -5px;">Restarts Now ♾️</p>
+                </div>
+                <div class="timer-grid">
                     <div class="t-box"><span id="days" class="t-val">0</span><span class="t-label">Days</span></div>
                     <div class="t-box"><span id="hours" class="t-val">00</span><span class="t-label">Hrs</span></div>
                     <div class="t-box"><span id="minutes" class="t-val">00</span><span class="t-label">Min</span></div>
@@ -326,13 +299,11 @@
 
         <div class="choice-box">
             <h2>Forever' us ♾️</h2>
-            
             <div class="scratch-container">
                 <div class="secret-content">Restarts Now 🫶</div>
                 <canvas id="scratch-canvas" width="320" height="160"></canvas>
             </div>
             <p style="font-size: 0.7rem; color: var(--ruby); margin-top: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Scratch to reveal my heart</p>
-
             <div class="btn-wrap">
                 <button class="btn btn-yes" onclick="revealSecret()">YES</button>
                 <button class="btn btn-no" id="noBtn" onmouseover="moveNo()">NO</button>
@@ -342,58 +313,40 @@
 
     <div id="secret-page">
         <h2 class="secret-h">My Only Wish</h2>
-        <p class="secret-msg">
-            My love, I know we went through a hard time, but I’m so grateful we’re still together. That moment showed me how important you truly are to me. I promise to be better, to love you properly, and to protect what we have. We’re not starting over — we’re growing stronger. And I can’t wait to make even more beautiful memories with you. I’m all in. Always. ❤️
-        </p>
+        <p class="secret-msg">My love, I know we went through a hard time, but I’m so grateful we’re still together. That moment showed me how important you truly are to me. I promise to be better, to love you properly, and to protect what we have. We’re not starting over — we’re growing stronger. And I can’t wait to make even more beautiful memories with you. I’m all in. Always. ❤️</p>
         <div class="photo-wall">
-            <img src="https://cdn.discordapp.com/attachments/1469712671980126419/1473617560913055766/IMG-20260218-WA0008.jpg?ex=6996dccd&is=69958b4d&hm=f89991f96bee833f775b58ea30920526a61abe0b95133da1b320d5a431d77bcc&" style="--r: -3deg" alt="Memory 1">
-            <img src="https://cdn.discordapp.com/attachments/1469712671980126419/1473617865377845259/IMG-20260218-WA0010.jpg?ex=6996dd15&is=69958b95&hm=2ef553dc0e2d4157f13a6003484273afb7c549c9b64b2df9a9c583050e0ab7ba&" style="--r: 2deg" alt="Memory 2">
-            <img src="https://cdn.discordapp.com/attachments/1469712671980126419/1473618120991309969/IMG-20260218-WA0009.jpg?ex=6996dd52&is=69958bd2&hm=fed50bab1d33daad089c08e755e67481695d935ca8b5b87feda6e2e3ee10f86c&" style="--r: 2deg" alt="Memory 3">
-            <img src="https://cdn.discordapp.com/attachments/1469712671980126419/1473619581586243678/IMG-20260218-WA0011.jpg?ex=6996deae&is=69958d2e&hm=e5012f6ab317cc65c8ca453adfbd53ab5dbe084f0c8e8a436998c303a8f4c00a&" style="--r: -1deg" alt="Memory 4">
+            <img src="https://cdn.discordapp.com/attachments/1469712671980126419/1473617560913055766/IMG-20260218-WA0008.jpg?ex=6996dccd&is=69958b4d&hm=f89991f96bee833f775b58ea30920526a61abe0b95133da1b320d5a431d77bcc&" style="--r: -3deg">
+            <img src="https://cdn.discordapp.com/attachments/1469712671980126419/1473617865377845259/IMG-20260218-WA0010.jpg?ex=6996dd15&is=69958b95&hm=2ef553dc0e2d4157f13a6003484273afb7c549c9b64b2df9a9c583050e0ab7ba&" style="--r: 2deg">
+            <img src="https://cdn.discordapp.com/attachments/1469712671980126419/1473618120991309969/IMG-20260218-WA0009.jpg?ex=6996dd52&is=69958bd2&hm=fed50bab1d33daad089c08e755e67481695d935ca8b5b87feda6e2e3ee10f86c&" style="--r: 2deg">
+            <img src="https://cdn.discordapp.com/attachments/1469712671980126419/1473619581586243678/IMG-20260218-WA0011.jpg?ex=6996deae&is=69958d2e&hm=e5012f6ab317cc65c8ca453adfbd53ab5dbe084f0c8e8a436998c303a8f4c00a&" style="--r: -1deg">
         </div>
-        
         <p style="margin-top: 50px; font-family: 'Alex Brush'; font-size: 4rem; color: var(--ruby);">Forever starts now. ❤️</p>
-
         <div style="margin-top: 40px;">
-            <p style="font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 15px; opacity: 0.8; font-weight: 700; text-transform: uppercase;">Reach out to me</p>
             <a href="https://www.instagram.com/_h.ri_x/" target="_blank" class="insta-btn">CLICK HERE ❤️</a>
         </div>
     </div>
 
     <script>
-        // CHAPTER 3 RUNNING TIMER LOGIC
+        // LIVE TIMER FOR CHAPTER 3
         function updateChapter3Timer() {
-            const startDate = new Date("Feb 14, 2026 00:00:00").getTime();
+            const start = new Date("Feb 14, 2026 00:00:00").getTime();
             const now = new Date().getTime();
-            const diff = now - startDate;
-
-            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = d;
-            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+            const diff = now - start;
+            document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
         }
 
-        // INITIALIZE EVERYTHING
         function init() {
-            // Start Chapter 3 Timer
             setInterval(updateChapter3Timer, 1000);
             updateChapter3Timer();
 
-            // SCRATCH CARD LOGIC
+            // Scratch Logic
             const canvas = document.getElementById('scratch-canvas');
             const ctx = canvas.getContext('2d');
-            ctx.fillStyle = '#c32f27'; 
-            ctx.fillRect(0, 0, 320, 160);
-            ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 12px Nunito';
-            ctx.textAlign = 'center';
-            ctx.fillText('SCRATCH WITH LOVE', 160, 85);
-
+            ctx.fillStyle = '#c32f27'; ctx.fillRect(0, 0, 320, 160);
+            ctx.fillStyle = '#ffffff'; ctx.font = 'bold 12px Nunito'; ctx.textAlign = 'center'; ctx.fillText('SCRATCH WITH LOVE', 160, 85);
             let isDrawing = false;
             function scratch(e) {
                 if (!isDrawing) return;
@@ -412,18 +365,14 @@
             drawPetals();
         }
 
-        // NO BUTTON MOVEMENT
         function moveNo() {
             const btn = document.getElementById('noBtn');
-            const x = Math.random() * (window.innerWidth - 120);
-            const y = Math.random() * (window.innerHeight - 50);
             btn.style.position = 'fixed';
-            btn.style.left = x + 'px';
-            btn.style.top = y + 'px';
+            btn.style.left = Math.random() * (window.innerWidth - 120) + 'px';
+            btn.style.top = Math.random() * (window.innerHeight - 50) + 'px';
             btn.style.zIndex = "9999";
         }
 
-        // REVEAL SECRET PAGE
         function revealSecret() {
             const main = document.getElementById('main-content');
             const secret = document.getElementById('secret-page');
@@ -436,7 +385,7 @@
             }, 1000);
         }
 
-        // PETAL FALLING ANIMATION
+        // Petal Logic
         const pCanvas = document.getElementById('petal-canvas');
         const pCtx = pCanvas.getContext('2d');
         pCanvas.width = window.innerWidth; pCanvas.height = window.innerHeight;
@@ -444,22 +393,16 @@
         const colors = ['#ffccd5', '#ffb3c1', '#c32f27', '#ff4d6d'];
         function drawPetals() {
             pCtx.clearRect(0,0,pCanvas.width, pCanvas.height);
-            if(petals.length < 40) petals.push({ 
-                x: Math.random()*pCanvas.width, y: -20, s: Math.random()*8+4, 
-                r: Math.random()*360, v: Math.random()*2+1, 
-                c: colors[Math.floor(Math.random()*colors.length)] 
-            });
+            if(petals.length < 40) petals.push({ x: Math.random()*pCanvas.width, y: -20, s: Math.random()*8+4, r: Math.random()*360, v: Math.random()*2+1, c: colors[Math.floor(Math.random()*colors.length)] });
             petals.forEach((p, i) => {
                 pCtx.save(); pCtx.translate(p.x, p.y); pCtx.rotate(p.r*Math.PI/180);
-                pCtx.fillStyle = p.c; pCtx.beginPath();
-                pCtx.ellipse(0, 0, p.s, p.s/2, 0, 0, 2*Math.PI); pCtx.fill(); pCtx.restore();
+                pCtx.fillStyle = p.c; pCtx.beginPath(); pCtx.ellipse(0, 0, p.s, p.s/2, 0, 0, 2*Math.PI); pCtx.fill(); pCtx.restore();
                 p.y += p.v; p.r += 1.2;
                 if(p.y > pCanvas.height) petals.splice(i, 1);
             });
             requestAnimationFrame(drawPetals);
         }
 
-        // MUSIC TOGGLE
         function togglePlay() {
             const s = document.getElementById('bgSong');
             s.paused ? s.play() : s.pause();
