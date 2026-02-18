@@ -294,7 +294,7 @@
                 <h3>Chapter 1: The Love</h3>
                 <p style="font-size: 0.75rem; margin-bottom: 15px; color: var(--ruby); font-weight: 700; letter-spacing: 1px;">Jan 26 — July 11, 2025</p>
                 <div class="timer-grid">
-                    <div class="t-box"><span class="t-val">253</span><span class="t-label">Days</span></div>
+                    <div class="t-box"><span class="t-val">532</span><span class="t-label">Days</span></div>
                     <div class="t-box"><span class="t-val">00</span><span class="t-label">Hrs</span></div>
                     <div class="t-box"><span class="t-val">00</span><span class="t-label">Min</span></div>
                     <div class="t-box"><span class="t-val">00</span><span class="t-label">Sec</span></div>
@@ -303,7 +303,7 @@
 
             <div class="chapter-card">
                 <h3>Chapter 2: The Distance</h3>
-                <p style="font-size: 0.75rem; margin-bottom: 15px; opacity: 0.6; letter-spacing: 1px;">July 11, 2025- Feb 13, 2026</p>
+                <p style="font-size: 0.75rem; margin-bottom: 15px; opacity: 0.6; letter-spacing: 1px;">July 11, 2025 - Feb 13, 2026</p>
                 <div class="timer-grid">
                     <div class="t-box"><span class="t-val">217</span><span class="t-label">Days</span></div>
                     <div class="t-box"><span class="t-val">00</span><span class="t-label">Hrs</span></div>
@@ -315,36 +315,12 @@
             <div class="chapter-card" style="border-style: dashed; border-color: var(--ruby); background: rgba(255,255,255,0.5);">
                 <h3>Chapter 3: The New Us</h3>
                 <p style="font-family: 'Alex Brush'; font-size: 2rem; margin-top: 10px; color: var(--ruby);">The New Us ♾️</p>
-<div class="timer-grid" style="display: flex; gap: 10px; margin-top: 10px; opacity: 1;">
-    <div class="t-box"><span id="days" class="t-val">0</span><span class="t-label">Days</span></div>
-    <div class="t-box"><span id="hours" class="t-val">00</span><span class="t-label">Hrs</span></div>
-    <div class="t-box"><span id="minutes" class="t-val">00</span><span class="t-label">Min</span></div>
-    <div class="t-box"><span id="seconds" class="t-val">00</span><span class="t-label">Sec</span></div>
-</div>
-
-<script>
-    (function() {
-        const start = new Date("Feb 14, 2026 00:00:00").getTime();
-        
-        function update() {
-            const now = new Date().getTime();
-            const diff = now - start;
-
-            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = d;
-            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
-        }
-
-        setInterval(update, 1000);
-        update();
-    })();
-</script>
+                <div class="timer-grid" id="chapter3-timer">
+                    <div class="t-box"><span id="days" class="t-val">0</span><span class="t-label">Days</span></div>
+                    <div class="t-box"><span id="hours" class="t-val">00</span><span class="t-label">Hrs</span></div>
+                    <div class="t-box"><span id="minutes" class="t-val">00</span><span class="t-label">Min</span></div>
+                    <div class="t-box"><span id="seconds" class="t-val">00</span><span class="t-label">Sec</span></div>
+                </div>
             </div>
         </div>
 
@@ -367,15 +343,10 @@
     <div id="secret-page">
         <h2 class="secret-h">My Only Wish</h2>
         <p class="secret-msg">
-My love,
-
-I know we went through a hard time, but I’m so grateful we’re still together. That moment showed me how important you truly are to me. I promise to be better, to love you properly, and to protect what we have.
-We’re not starting over — we’re growing stronger. And I can’t wait to make even more beautiful memories with you.
-
-I’m all in. Always. ❤️
+            My love, I know we went through a hard time, but I’m so grateful we’re still together. That moment showed me how important you truly are to me. I promise to be better, to love you properly, and to protect what we have. We’re not starting over — we’re growing stronger. And I can’t wait to make even more beautiful memories with you. I’m all in. Always. ❤️
         </p>
         <div class="photo-wall">
-            <img src="https://cdn.discordapp.com/attachments/1469712671980126419/1473617560913055766/IMG-20260218-WA0008.jpg?ex=6996dccd&is=69958b4d&hm=f89991f96bee833f775b58ea30920526a61abe0b95133da1b320d5a431d77bcc&"--r: -3deg" alt="Memory 1">
+            <img src="https://cdn.discordapp.com/attachments/1469712671980126419/1473617560913055766/IMG-20260218-WA0008.jpg?ex=6996dccd&is=69958b4d&hm=f89991f96bee833f775b58ea30920526a61abe0b95133da1b320d5a431d77bcc&" style="--r: -3deg" alt="Memory 1">
             <img src="https://cdn.discordapp.com/attachments/1469712671980126419/1473617865377845259/IMG-20260218-WA0010.jpg?ex=6996dd15&is=69958b95&hm=2ef553dc0e2d4157f13a6003484273afb7c549c9b64b2df9a9c583050e0ab7ba&" style="--r: 2deg" alt="Memory 2">
             <img src="https://cdn.discordapp.com/attachments/1469712671980126419/1473618120991309969/IMG-20260218-WA0009.jpg?ex=6996dd52&is=69958bd2&hm=fed50bab1d33daad089c08e755e67481695d935ca8b5b87feda6e2e3ee10f86c&" style="--r: 2deg" alt="Memory 3">
             <img src="https://cdn.discordapp.com/attachments/1469712671980126419/1473619581586243678/IMG-20260218-WA0011.jpg?ex=6996deae&is=69958d2e&hm=e5012f6ab317cc65c8ca453adfbd53ab5dbe084f0c8e8a436998c303a8f4c00a&" style="--r: -1deg" alt="Memory 4">
@@ -390,19 +361,30 @@ I’m all in. Always. ❤️
     </div>
 
     <script>
-        const sepDate = new Date('2025-05-06T00:00:00');
-        function updateTimer() {
-            const now = new Date();
-            const diff = now - sepDate;
-            document.getElementById('d').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-            document.getElementById('h').innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            document.getElementById('m').innerText = Math.floor((diff / (1000 * 60)) % 60);
-            document.getElementById('s').innerText = Math.floor((diff / 1000) % 60);
-        }
-        setInterval(updateTimer, 1000);
-        updateTimer();
+        // CHAPTER 3 RUNNING TIMER LOGIC
+        function updateChapter3Timer() {
+            const startDate = new Date("Feb 14, 2026 00:00:00").getTime();
+            const now = new Date().getTime();
+            const diff = now - startDate;
 
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = d;
+            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+        }
+
+        // INITIALIZE EVERYTHING
         function init() {
+            // Start Chapter 3 Timer
+            setInterval(updateChapter3Timer, 1000);
+            updateChapter3Timer();
+
+            // SCRATCH CARD LOGIC
             const canvas = document.getElementById('scratch-canvas');
             const ctx = canvas.getContext('2d');
             ctx.fillStyle = '#c32f27'; 
@@ -430,6 +412,7 @@ I’m all in. Always. ❤️
             drawPetals();
         }
 
+        // NO BUTTON MOVEMENT
         function moveNo() {
             const btn = document.getElementById('noBtn');
             const x = Math.random() * (window.innerWidth - 120);
@@ -440,6 +423,7 @@ I’m all in. Always. ❤️
             btn.style.zIndex = "9999";
         }
 
+        // REVEAL SECRET PAGE
         function revealSecret() {
             const main = document.getElementById('main-content');
             const secret = document.getElementById('secret-page');
@@ -452,6 +436,7 @@ I’m all in. Always. ❤️
             }, 1000);
         }
 
+        // PETAL FALLING ANIMATION
         const pCanvas = document.getElementById('petal-canvas');
         const pCtx = pCanvas.getContext('2d');
         pCanvas.width = window.innerWidth; pCanvas.height = window.innerHeight;
@@ -474,19 +459,11 @@ I’m all in. Always. ❤️
             requestAnimationFrame(drawPetals);
         }
 
+        // MUSIC TOGGLE
         function togglePlay() {
             const s = document.getElementById('bgSong');
             s.paused ? s.play() : s.pause();
         }
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
