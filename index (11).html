@@ -40,7 +40,6 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            /* UPDATED BACKGROUND IMAGE */
             background: linear-gradient(rgba(120, 1, 22, 0.5), rgba(120, 1, 22, 0.5)), 
                         url('https://w0.peakpx.com/wallpaper/126/873/HD-wallpaper-teddy-bear-love-stuffed-animal.jpg');
             background-size: cover;
@@ -102,7 +101,7 @@
             font-weight: 700;
             text-transform: uppercase;
             color: var(--wine);
-            opacity: 0.6; /* Uniform look for all boxes */
+            opacity: 0.6;
         }
 
         .timer-grid {
@@ -148,8 +147,29 @@
             z-index: 2000; overflow-y: auto; padding: 60px 20px; text-align: center; opacity: 0; transition: 1.5s;
         }
 
-        .photo-wall { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-top: 40px; }
-        .photo-wall img { width: 280px; height: 350px; object-fit: cover; border: 12px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transform: rotate(var(--r, 0deg)); }
+        .secret-h { font-family: 'Alex Brush', cursive; font-size: 4.5rem; color: var(--ruby); margin-bottom: 20px; }
+
+        /* PHOTO WALL GRID */
+        .photo-wall { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            max-width: 1000px;
+            margin: 40px auto;
+            gap: 20px; 
+            padding: 20px;
+        }
+
+        .photo-wall img { 
+            width: 100%; 
+            height: 350px; 
+            object-fit: cover; 
+            border: 10px solid white; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-wall img:hover { transform: scale(1.05) rotate(0deg) !important; z-index: 5; }
 
         .scratch-container { position: relative; width: 320px; height: 160px; margin: 30px auto; border-radius: 20px; overflow: hidden; border: 3px solid var(--ruby); }
         #scratch-canvas { position: absolute; top: 0; left: 0; z-index: 2; touch-action: none; cursor: crosshair; }
@@ -223,12 +243,18 @@
 
     <div id="secret-page">
         <h2 class="secret-h">My Only Wish</h2>
-        <p style="font-family: 'Lora'; font-style: italic; color: var(--wine); max-width: 600px; margin: 0 auto;">Forever starts now. ❤️</p>
+        <p style="font-family: 'Lora'; font-style: italic; color: var(--wine); max-width: 600px; margin: 0 auto; font-size: 1.2rem;">Forever starts now. ❤️</p>
+        
         <div class="photo-wall">
-            <img src="https://media.discordapp.net/attachments/1469712671980126419/1473618120991309969/IMG-20260218-WA0009.jpg?ex=6996dd52&is=69958bd2&hm=fed50bab1d33daad089c08e755e67481695d935ca8b5b87feda6e2e3ee10f86c&=&format=webp&width=268&height=579" style="--r: -3deg">
             <img src="https://media.discordapp.net/attachments/1469712671980126419/1473617560913055766/IMG-20260218-WA0008.jpg?ex=6996dccd&is=69958b4d&hm=f89991f96bee833f775b58ea30920526a61abe0b95133da1b320d5a431d77bcc&=&format=webp&width=327&height=579" style="--r: -3deg">
-            <img src="https://media.discordapp.net/attachments/1469712671980126419/1473617865377845259/IMG-20260218-WA0010.jpg?ex=6996dd15&is=69958b95&hm=2ef553dc0e2d4157f13a6003484273afb7c549c9b64b2df9a9c583050e0ab7ba&=&format=webp&width=325&height=579" style="--r: 2deg">
+            
+            <img src="https://media.discordapp.net/attachments/1469712671980126419/1473617865377845259/IMG-20260218-WA0010.jpg?ex=6996dd15&is=69958b95&hm=2ef553dc0e2d4157f13a6003484273afb7c549c9b64b2df9a9c583050e0ab7ba&=&format=webp&width=325&height=579" style="--r: 3deg">
+            
+            <img src="https://media.discordapp.net/attachments/1469712671980126419/1473618120991309969/IMG-20260218-WA0009.jpg?ex=6996dd52&is=69958bd2&hm=fed50bab1d33daad089c08e755e67481695d935ca8b5b87feda6e2e3ee10f86c&=&format=webp&width=268&height=579" style="--r: -2deg">
+            
+            <img src="https://media.discordapp.net/attachments/1469712671980126419/1473619581586243678/IMG-20260218-WA0011.jpg?ex=6996deae&is=69958d2e&hm=e5012f6ab317cc65c8ca453adfbd53ab5dbe084f0c8e8a436998c303a8f4c00a&=&format=webp&width=197&height=350" style="--r: 2deg" alt="Add your 4th photo link here">
         </div>
+
         <a href="https://www.instagram.com/_h.ri_x/" target="_blank" class="insta-btn">Connect ❤️</a>
     </div>
 
@@ -308,5 +334,3 @@
     </script>
 </body>
 </html>
-
-
