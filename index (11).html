@@ -315,12 +315,36 @@
             <div class="chapter-card" style="border-style: dashed; border-color: var(--ruby); background: rgba(255,255,255,0.5);">
                 <h3>Chapter 3: The New Us</h3>
                 <p style="font-family: 'Alex Brush'; font-size: 2rem; margin-top: 10px; color: var(--ruby);">The New Us ♾️</p>
-                <div class="timer-grid" style="opacity: 0.2; margin-top: 10px;">
-                    <div class="t-box"><span id="days" class="t-val">0</span><span class="t-label">Days</span></div>
-                    <div class="t-box"><span id="hours" class="t-val">00</span><span class="t-label">Hrs</span></div>
-                    <div class="t-box"><span id="minutes" class="t-val">00</span><span class="t-label">Min</span></div>
-                    <div class="t-box"><span id="seconds" class="t-val">00</span><span class="t-label">Sec</span></div>
-                </div>
+<div class="timer-grid" style="display: flex; gap: 10px; margin-top: 10px; opacity: 1;">
+    <div class="t-box"><span id="days" class="t-val">0</span><span class="t-label">Days</span></div>
+    <div class="t-box"><span id="hours" class="t-val">00</span><span class="t-label">Hrs</span></div>
+    <div class="t-box"><span id="minutes" class="t-val">00</span><span class="t-label">Min</span></div>
+    <div class="t-box"><span id="seconds" class="t-val">00</span><span class="t-label">Sec</span></div>
+</div>
+
+<script>
+    (function() {
+        const start = new Date("Feb 14, 2026 00:00:00").getTime();
+        
+        function update() {
+            const now = new Date().getTime();
+            const diff = now - start;
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = d;
+            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+        }
+
+        setInterval(update, 1000);
+        update();
+    })();
+</script>
             </div>
         </div>
 
@@ -458,6 +482,7 @@ I’m all in. Always. ❤️
 </body>
 
 </html>
+
 
 
 
